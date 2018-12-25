@@ -1,0 +1,14 @@
+"xbacklight -inc 10"
+    XF86MonBrightnessUp
+
+"/bin/zsh -c 'if [[ $(xbacklight) -le 10 ]] then (xbacklight -set 1) else (xbacklight -dec 10) fi'"
+    XF86MonBrightnessDown
+
+"pamixer -u; pamixer -i 5"
+    XF86AudioRaiseVolume
+
+"pamixer -u; pamixer -d 5"
+    XF86AudioLowerVolume
+
+"/bin/zsh -c 'if ($(pamixer --get-mute)) then (pamixer -u) else (pamixer -m) fi'"
+    XF86AudioMute
