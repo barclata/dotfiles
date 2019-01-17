@@ -42,8 +42,8 @@ alias rm="trash"
 alias syncthing='(syncthing &)'
 alias masterpdf='(masterpdfeditor5 &)'
 alias top='htop -u barclata'
-alias ghc='stack ghc -- '
-alias ghci='stack ghci -- '
+#alias ghc='stack ghc -- '
+#alias ghci='stack ghci -- '
 alias runghc='stack runghc -- '
 
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
@@ -55,8 +55,8 @@ alias APT='(connmanctl connect &)'
 alias fixwifi='connmanctl disable wifi; sleep .2s; connmanctl enable wifi'
 
 # emacs aliases
-alias emacsterm='emacsclient -t'
-alias emacs='emacsclient -c'
+# alias emacsterm='emacsclient -t'
+# alias emacs='emacsclient -c'
 
 alias ":q"='bye'
 

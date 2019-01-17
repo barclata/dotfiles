@@ -11,7 +11,7 @@ export LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;
 export HOLDIR="/opt/hol"
 
 # location of Lem library
-export LEMLIB="/home/barclata/Projects/Coq/lem/library"
+export LEMLIB="/home/barclata/projects/lem/library"
 
 # path extension
 export PATH=$PATH:$HOME/bin_no_pac:$HOME/.local/bin:/opt/HOL/bin
