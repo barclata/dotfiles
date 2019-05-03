@@ -202,14 +202,13 @@ set $urgent-bg-color     #E53935
 
 bar {
         status_command i3status
-        # colors {
-        # }
 }
 
-bindsym $mod+d exec rofi -show run -run-command "/bin/zsh -i -c '{cmd}'" -lines 3 -eh 2 -font "FiraCode 20"
+bindsym $mod+d exec rofi -theme "Pop-Dark" -width 640 -show run -run-command "/bin/zsh -i -c '{cmd}'" -lines 3 -eh 2 -font "FiraCode 18"
 
 # Hotkey to change workspace to other monitor
 # bindsym $mod+m move workspace to output up; move workspace to output left
 bindsym $mod+n move workspace to output left; move workspace to output up
 
 # Things to load on startup
+exec --no-startup-id i3-battery-popup -n
