@@ -33,8 +33,8 @@ alias poly='rlwrap poly'
 volume() {
 	local VOL=`pamixer --get-volume`
 	local MUTE=`pamixer --get-mute`
-	echo "Volume: $VOL" 
-	echo "Mute: $MUTE" 
+	echo "Volume: $VOL"
+	echo "Mute: $MUTE"
 }
 
 alias rm="trash"
@@ -42,11 +42,12 @@ alias rm="trash"
 alias syncthing='(syncthing &)'
 alias masterpdf='(masterpdfeditor5 &)'
 alias top='htop -u barclata'
-#alias ghc='stack ghc -- '
-#alias ghci='stack ghci -- '
+alias ghc='stack ghc -- '
+alias ghci='stack ghci -- '
 alias runghc='stack runghc -- '
+alias spike='ssh barclata@24.225.100.197'
 
-alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias ranger='ranger --choosedir=$XDG_CONFIG_HOME/ranger/.rangerdir; LASTDIR=`cat $XDG_CONFIG_HOME/ranger/.rangerdir`; cd "$LASTDIR"'
 
 
 # commands to connect to and fix wifi

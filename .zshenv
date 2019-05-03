@@ -15,7 +15,10 @@ export LEMLIB="/home/barclata/projects/lem/library"
 
 # path extension
 export PATH=$PATH:$HOME/bin_no_pac:$HOME/.local/bin:/opt/HOL/bin
-
+# Graal
+export PATH=$HOME/projects/classes/768/final/graalvm-ce-1.0.0-rc15/bin:$PATH
+# Cisco anyConnect
+export PATH=$PATH:/opt/cisco/anyconnect/bin
 # XDG Base Directory spec
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
@@ -29,3 +32,6 @@ export XDG_CONFIG_DIRS=/etc/xdg
 
 # I did this to make emacs shell stop bitching
 export TERM=xterm-256color
+
+# for GraalVM
+export JAVA_HOME=$HOME/projects/classes/768/final/graalvm-ce-1.0.0-rc15

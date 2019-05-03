@@ -12,3 +12,6 @@
 
 "/bin/zsh -c 'if ($(pamixer --get-mute)) then (pamixer -u) else (pamixer -m) fi'"
     XF86AudioMute
+
+"pamixer -t --source 1"
+    XF86AudioMicMute
