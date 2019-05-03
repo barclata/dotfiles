@@ -63,7 +63,6 @@ alias ":q"='bye'
 
 PS1='[%n:%d]$ '
 
-# on exit?
 
 # opam configuration
 test -r /home/barclata/.opam/opam-init/init.zsh && . /home/barclata/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
