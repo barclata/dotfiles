@@ -13,8 +13,11 @@ export HOLDIR="/opt/hol"
 # location of Lem library
 export LEMLIB="/home/barclata/projects/lem/library"
 
+# location of CakeML
+export CAKEMLDIR="/home/barclata/projects/cakeml"
+
 # path extension
-export PATH=$PATH:$HOME/bin_no_pac:$HOME/.local/bin:/opt/HOL/bin
+export PATH=$PATH:$HOME/bin_no_pac:$HOME/.local/bin:$HOLDIR/bin:$HOME/cake-x64-64
 # Graal
 export PATH=$HOME/projects/classes/768/final/graalvm-ce-1.0.0-rc15/bin:$PATH
 # Cisco anyConnect
@@ -35,3 +38,4 @@ export TERM=xterm-256color
 
 # for GraalVM
 export JAVA_HOME=$HOME/projects/classes/768/final/graalvm-ce-1.0.0-rc15
+

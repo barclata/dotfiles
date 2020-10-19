@@ -25,7 +25,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator battery)
 
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="$ "
-source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # My aliases
 alias ls='ls -v -h --color=auto --group-directories-first'
@@ -37,8 +37,10 @@ volume() {
 	echo "Mute: $MUTE"
 }
 
+# current projects
+export CAKEVER="$HOME/projects/sldg/cakeml-verif/src"
+
 alias rm="trash"
-#alias virtualbox='(virtualbox &)'
 alias syncthing='(syncthing &)'
 alias masterpdf='(masterpdfeditor5 &)'
 alias top='htop -u barclata'
@@ -49,11 +51,19 @@ alias spike='ssh barclata@24.225.100.197'
 
 alias ranger='ranger --choosedir=$XDG_CONFIG_HOME/ranger/.rangerdir; LASTDIR=`cat $XDG_CONFIG_HOME/ranger/.rangerdir`; cd "$LASTDIR"'
 
-
+alias hol='rlwrap hol'
 # commands to connect to and fix wifi
 alias JAYHAWK='(connmanctl connect wifi_983b8f87691e_4a41594841574b_managed_ieee8021x &)'
 alias APT='(connmanctl connect &)'
 alias fixwifi='connmanctl disable wifi; sleep .2s; connmanctl enable wifi'
+
+# coq shortcuts
+alias coq_mk='coq_makefile -f _CoqProject -o Makefile'
+
+# current project's shortcuts
+alias cakeToCoq='~/cakeToCoq.sh'
+# alias cakeToSexp='cakePrime --skip_type_inference=true --exclude_prelude=true --print_sexp'
+# alias sexpToCoq='~/projects/sldg/cake_sexp_translator/_build/default/bin/main.exe'
 
 # emacs aliases
 # alias emacsterm='emacsclient -t'
@@ -62,6 +72,8 @@ alias fixwifi='connmanctl disable wifi; sleep .2s; connmanctl enable wifi'
 alias ":q"='bye'
 
 PS1='[%n:%d]$ '
+
+
 
 
 # opam configuration

@@ -33,9 +33,7 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(java
-     html
-     markdown
+   '(python
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -57,8 +55,8 @@ This function should only modify configuration layer settings."
      syntax-checking
      version-control
      ocaml
-     sml
      haskell
+     sml
      yaml
      ranger
      latex
@@ -431,7 +429,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Either nil or a number of seconds. If non-nil zone out after the specified
    ;; number of seconds. (default nil)
-   dotspacemacs-zone-out-when-idle 600
+   dotspacemacs-zone-out-when-idle nil
 
    ;; Run `spacemacs/prettify-org-buffer' when
    ;; visiting README.org files of Spacemacs.
@@ -470,6 +468,17 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+
+  (defun add-links-to-org-agenda-files ()
+    (interactive)
+    (org-element-map
+        (org-element-parse-buffer)
+        'link
+      (lambda (x)
+        (if (equal (org-element-property :type x) "file")
+            (add-to-list 'org-agenda-files (org-element-property :path x))))))
+
+  (load "/opt/hol/tools/hol-mode")
   (require 'helm-bookmark)
 
   (setq-default evil-auto-balance-windows t)
@@ -484,7 +493,7 @@ before packages are loaded."
   (evil-ex-define-cmd "q[uit]" nil)
 
   (ranger-override-dired-mode t)
-  (setq spacemacs-useless-buffers-regexp '("\\*.*\\*.*\\|TAGS"))
+  (setq spacemacs-useless-buffers-regexp '("\\*.*\\*.*\\|TAGS|\\*HOL\\*"))
 
   (setq TeX-view-program-list '(("Zathura" "zathura %o")))
   (setq TeX-view-program-selection '((output-pdf "Zathura")))
@@ -527,12 +536,13 @@ This function is called at the very end of Spacemacs initialization."
      ("TEMP" . "#b1951d")
      ("FIXME" . "#dc752f")
      ("XXX" . "#dc752f")
-     ("XXXX" . "#dc752f")
-     ("???" . "#dc752f"))))
+     ("XXXX" . "#dc752f"))))
+ '(hybrid-mode t)
  '(package-selected-packages
    (quote
-    (sunny-day-theme professional-theme oldlace-theme light-soap-theme yaml-mode xterm-color ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen utop use-package tuareg caml toc-org spaceline powerline smeargle shell-pop restart-emacs ranger rainbow-delimiters popwin persp-mode pcre2el paradox spinner orgit org-plus-contrib org-bullets open-junk-file ocp-indent ob-sml sml-mode neotree multi-term move-text merlin magit-gitflow macrostep lorem-ipsum linum-relative link-hint intero indent-guide hydra hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile helm-hoogle helm-gitignore request helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag haskell-snippets google-translate golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter fuzzy flycheck-pos-tip pos-tip flycheck-haskell flycheck pkg-info epl flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit magit-popup git-commit ghub treepy graphql with-editor evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil eval-sexp-fu eshell-z eshell-prompt-extras esh-help elisp-slime-nav dumb-jump diminish diff-hl define-word company-statistics company-ghci company-ghc company-cabal company-auctex column-enforce-mode cmm-mode clean-aindent-mode bind-map bind-key auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
- '(pdf-view-midnight-colors (quote ("#b2b2b2" . "#292b2e"))))
+    (yapfify stickyfunc-enhance pytest pyenv-mode py-isort pippel pipenv pyvenv pip-requirements python live-py-mode importmagic epc ctable concurrent deferred helm-pydoc helm-gtags helm-cscope xcscope ggtags cython-mode counsel-gtags company-anaconda blacken anaconda-mode pythonic yaml-mode xterm-color ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen utop use-package tuareg caml toc-org spaceline powerline smeargle shell-pop restart-emacs ranger rainbow-delimiters popwin persp-mode pcre2el paradox spinner orgit org-plus-contrib org-bullets open-junk-file ocp-indent ob-sml sml-mode neotree multi-term move-text merlin magit-gitflow macrostep lorem-ipsum linum-relative link-hint intero indent-guide hydra hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile helm-hoogle helm-gitignore request helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag haskell-snippets google-translate golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter fuzzy flycheck-pos-tip pos-tip flycheck-haskell flycheck pkg-info epl flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit magit-popup git-commit ghub treepy graphql with-editor evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil eval-sexp-fu eshell-z eshell-prompt-extras esh-help elisp-slime-nav dumb-jump diminish diff-hl define-word company-statistics company-ghci company-ghc company-cabal company-auctex column-enforce-mode cmm-mode clean-aindent-mode bind-map bind-key auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+ '(pdf-view-midnight-colors (quote ("#b2b2b2" . "#292b2e")))
+ '(proof-multiple-frames-enable nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
