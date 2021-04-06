@@ -40,5 +40,8 @@ fi
 # xclock -geometry 50x50-1+1 &
 xbindkeys
 redshift &
+nm-applet &
+eval $(ssh-agent)
 exec i3
+
 # exec startkde
