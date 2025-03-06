@@ -41,6 +41,7 @@ fi
 xbindkeys
 redshift &
 nm-applet &
+mons -a -x $HOME/.local/bin/monitor-extend.sh & 
 eval $(ssh-agent)
 exec i3
 
